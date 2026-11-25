@@ -54,6 +54,16 @@ big, and any answer can be read aloud.
 - TODO (vision): the model used and its hit rate on those ten photos. The request path is tested
   against a stand-in endpoint; it has not yet been run against a real model.
 
+## Try it
+
+- Code: https://github.com/jphein/can-i-recycle-this-here
+- Demo: https://jphein.github.io/can-i-recycle-this-here/. **The public demo answers typed items
+  only.** GitHub Pages serves static files, and the photo path needs the small server that holds
+  the model key, so on the demo the photo button says photo naming isn't switched on and asks you
+  to type the item. The photo path runs locally with `node server.mjs` and a key in the
+  environment; the video shows it.
+  (TODO: drop "the video shows it" if the photo path is not live by recording day.)
+
 ## What's next
 
 - Run the photo path on real items and publish the hit rate, misses included.
