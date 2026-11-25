@@ -1,0 +1,72 @@
+[
+  {
+    "file": "pizza-box.jpg",
+    "expect": "pizza-box",
+    "title": "File:Russian Pizza Box.jpg",
+    "license": "cc0",
+    "source": "https://commons.wikimedia.org/wiki/File:Russian_Pizza_Box.jpg"
+  },
+  {
+    "file": "aa-battery.jpg",
+    "expect": "household-battery",
+    "title": "File:IKEA LADDA rechargeable AA-batteries.jpg",
+    "license": "cc0",
+    "source": "https://commons.wikimedia.org/wiki/File:IKEA_LADDA_rechargeable_AA-batteries.jpg"
+  },
+  {
+    "file": "glass-jar.jpg",
+    "expect": "glass-bottle",
+    "title": "File:Empty Clear Jar (51330638811).jpg",
+    "license": "cc0",
+    "source": "https://commons.wikimedia.org/wiki/File:Empty_Clear_Jar_(51330638811).jpg"
+  },
+  {
+    "file": "aluminum-can.jpg",
+    "expect": "metal-can",
+    "title": "File:Can of Diet Sierra Mist lemon-lime soda, 2011.jpg",
+    "license": "cc0",
+    "source": "https://commons.wikimedia.org/wiki/File:Can_of_Diet_Sierra_Mist_lemon-lime_soda,_2011.jpg"
+  },
+  {
+    "file": "plastic-bottle.jpg",
+    "expect": "plastic-container",
+    "title": "File:Empty Plastic Bottle.jpg",
+    "license": "cc0",
+    "source": "https://commons.wikimedia.org/wiki/File:Empty_Plastic_Bottle.jpg"
+  },
+  {
+    "file": "laptop.jpg",
+    "expect": "e-waste",
+    "title": "File:Laptop-2411303 960 720.jpg",
+    "license": "cc0",
+    "source": "https://commons.wikimedia.org/wiki/File:Laptop-2411303_960_720.jpg"
+  },
+  {
+    "file": "paint-can.jpg",
+    "expect": "paint",
+    "title": "File:Ripolin snel primer tin can, pic2.JPG",
+    "license": "cc0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ripolin_snel_primer_tin_can,_pic2.JPG"
+  },
+  {
+    "file": "cardboard-box.jpg",
+    "expect": "cardboard",
+    "title": "File:Corrugated box - haz mat.jpg",
+    "license": "public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Corrugated_box_-_haz_mat.jpg"
+  },
+  {
+    "file": "plastic-bag.jpg",
+    "expect": "plastic-bag",
+    "title": "File:Plastic shopping bag of Sakae.JPG",
+    "license": "cc0",
+    "source": "https://commons.wikimedia.org/wiki/File:Plastic_shopping_bag_of_Sakae.JPG"
+  },
+  {
+    "file": "propane-tank.jpg",
+    "expect": "propane",
+    "title": "File:Propane cylinders 01.jpg",
+    "license": "public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Propane_cylinders_01.jpg"
+  }
+]

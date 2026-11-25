@@ -4,4 +4,3 @@ node_modules/
 version.json
 .env
 .env.*
-tests/fixtures/
