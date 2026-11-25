@@ -1,0 +1,776 @@
+{
+  "schema": 1,
+  "area": "Western Nevada County, California (WM curbside service: Grass Valley, Nevada City, unincorporated county)",
+  "read": "2026-11-24",
+  "ask": {
+    "name": "WM (Waste Management) of Nevada County, Customer Service",
+    "phone": "530-274-3090",
+    "hours": "Monday - Friday, 8:00 a.m. - 5:00 p.m.",
+    "also": "Nevada County Solid Waste: 530-265-7111",
+    "source": "wm-gv-2026-calendar",
+    "quote": "Waste Management of Nevada County Customer Service: 530-274-3090 Monday - Friday • 8:00 a.m. – 5:00 p.m."
+  },
+  "sources": {
+    "county-recycling-guide": {
+      "title": "Nevada County Solid Waste: Recycling Guide",
+      "url": "https://www.nevadacountyca.gov/4267/Recycling-Guide",
+      "read": "2026-11-24",
+      "status": "verified",
+      "snapshot": "scratch/sources/county-4267.html.txt"
+    },
+    "county-transfer-stations": {
+      "title": "Nevada County Solid Waste: Transfer Stations",
+      "url": "https://www.nevadacountyca.gov/3412/Transfer-Stations",
+      "read": "2026-11-24",
+      "status": "verified",
+      "snapshot": "scratch/sources/county-3412.html.txt"
+    },
+    "wm-gv-2026-calendar": {
+      "title": "WM 2026 Grass Valley Collection Calendar & Service Guide",
+      "url": "https://www.wm.com/content/dam/wm/local-pages/california/grass-valley/documents/2026GrassValleyCalendarOW.pdf",
+      "read": "2026-11-24",
+      "status": "verified",
+      "snapshot": "scratch/sources/gv-2026-cal.plain.txt"
+    },
+    "wm-mrts-brochure-2026": {
+      "title": "McCourtney Road Transfer Station Brochure, rates valid July 2026 - June 2027",
+      "url": "https://www.wm.com/content/dam/wm/local-pages/california/nevada-county/residential/McCourtney-Road-Transfer-Station-Brochure-2026-2027.pdf",
+      "read": "2026-11-24",
+      "status": "verified",
+      "snapshot": "scratch/sources/mrts-2026-27.plain.txt"
+    },
+    "calrecycle-banned": {
+      "title": "CalRecycle: Waste Banned from the Trash",
+      "url": "https://calrecycle.ca.gov/homehazwaste/info/",
+      "read": "2026-11-24",
+      "status": "verified",
+      "snapshot": "scratch/sources/calrecycle_ca_gov_homehazwaste_info_.txt"
+    }
+  },
+  "sites": {
+    "mrts": {
+      "name": "McCourtney Road Transfer Station",
+      "address": "14741 Wolf Mountain Road, Grass Valley, CA 95949",
+      "hours": "Wednesday - Sunday, 8:00 a.m. - 3:30 p.m. (closed Monday and Tuesday and on major holidays)",
+      "phone": "530-274-3090",
+      "source": "county-transfer-stations"
+    },
+    "mrts-hhw": {
+      "name": "Household Hazardous Waste area, McCourtney Road Transfer Station (free for residents)",
+      "address": "14741 Wolf Mountain Road, Grass Valley, CA 95949",
+      "hours": "Wednesday - Sunday, 8:00 a.m. - 3:30 p.m.",
+      "phone": "530-274-3090",
+      "note": "State law limits one trip to 15 gallons or 125 pounds; carry it in spill- and leak-proof containers.",
+      "source": "county-transfer-stations"
+    },
+    "battery-drop-off": {
+      "name": "Household battery drop-off (or a Ziploc bag on top of your blue recycling cart on pickup day)",
+      "address": "Briar Patch Community Market (290 Sierra College, Grass Valley); Nevada County Government Center (950 Maidu Ave, Nevada City); Grass Valley Library (207 Mill St); McCourtney Road Transfer Station; Madelyn Helling Library (980 Helling Way, Nevada City); Nevada City City Hall (317 Broad St); North San Juan and Washington Transfer Stations",
+      "source": "county-recycling-guide"
+    },
+    "grocery-store": {
+      "name": "Plastic bag collection at a grocery store",
+      "address": "Many grocery stores in Nevada County take plastic shopping bags.",
+      "source": "wm-gv-2026-calendar"
+    },
+    "recology-auburn": {
+      "name": "Recology Auburn",
+      "address": "12305 Shale Ridge Road, Auburn, CA 95602",
+      "source": "county-transfer-stations"
+    }
+  },
+  "rules": [
+    {
+      "id": "glass-bottle",
+      "item": "glass bottle or jar",
+      "aliases": [
+        "glass bottle",
+        "glass jar",
+        "wine bottle",
+        "beer bottle",
+        "jar",
+        "glass"
+      ],
+      "material": "glass",
+      "verdict": "curbside-recycle",
+      "how": "Empty it. Put it loose in the blue recycling cart. Bottles with a CRV label can also go to a buyback center for the refund.",
+      "source": "county-recycling-guide",
+      "quote": "Empty glass jars and bottles"
+    },
+    {
+      "id": "metal-can",
+      "item": "aluminum or metal can",
+      "aliases": [
+        "aluminum can",
+        "soda can",
+        "beer can",
+        "tin can",
+        "food can",
+        "soup can",
+        "metal can",
+        "can"
+      ],
+      "material": "metal",
+      "verdict": "curbside-recycle",
+      "how": "Empty it. Put it loose in the blue recycling cart. Cans with a CRV label can also go to a buyback center for the refund.",
+      "source": "county-recycling-guide",
+      "quote": "Empty aluminum and metal cans"
+    },
+    {
+      "id": "plastic-container",
+      "item": "plastic bottle, jug, jar or container",
+      "aliases": [
+        "plastic bottle",
+        "water bottle",
+        "milk jug",
+        "plastic jug",
+        "plastic jar",
+        "plastic container",
+        "plastic tub",
+        "yogurt tub",
+        "clamshell",
+        "detergent bottle",
+        "shampoo bottle"
+      ],
+      "material": "plastic",
+      "verdict": "curbside-recycle",
+      "how": "Empty it. Put it loose in the blue recycling cart.",
+      "source": "county-recycling-guide",
+      "quote": "Empty plastic bottles, jugs, jars, and containers"
+    },
+    {
+      "id": "cardboard",
+      "item": "cardboard box",
+      "aliases": [
+        "cardboard",
+        "cardboard box",
+        "shipping box",
+        "box",
+        "cereal box",
+        "paperboard"
+      ],
+      "material": "paper",
+      "verdict": "curbside-recycle",
+      "how": "Flatten it, keep it dry, put it in the blue recycling cart. A greasy pizza box goes in the green cart instead.",
+      "source": "county-recycling-guide",
+      "quote": "Flattened cardboard, and clean and dry paper"
+    },
+    {
+      "id": "paper",
+      "item": "clean, dry paper",
+      "aliases": [
+        "paper",
+        "mail",
+        "junk mail",
+        "newspaper",
+        "magazine",
+        "office paper",
+        "envelope",
+        "catalog"
+      ],
+      "material": "paper",
+      "verdict": "curbside-recycle",
+      "how": "Keep it clean and dry. Put it loose in the blue recycling cart.",
+      "source": "county-recycling-guide",
+      "quote": "Flattened cardboard, and clean and dry paper"
+    },
+    {
+      "id": "to-go-cup",
+      "item": "paper or plastic to-go cup",
+      "aliases": [
+        "coffee cup",
+        "to go cup",
+        "soda cup",
+        "paper cup",
+        "plastic cup"
+      ],
+      "material": "paper or plastic",
+      "verdict": "curbside-recycle",
+      "how": "Empty it. Put it in the blue recycling cart.",
+      "source": "county-recycling-guide",
+      "quote": "Empty paper and plastic to-go cups (coffee cups and soda cups)"
+    },
+    {
+      "id": "plastic-bag",
+      "item": "plastic shopping bag",
+      "aliases": [
+        "plastic bag",
+        "shopping bag",
+        "grocery bag",
+        "bag",
+        "plastic film",
+        "bread bag"
+      ],
+      "material": "plastic film",
+      "verdict": "drop-off:grocery-store",
+      "how": "Not in the recycling cart, and never bag your recyclables. Take clean plastic bags to a grocery store collection bin.",
+      "source": "wm-gv-2026-calendar",
+      "quote": "Bags are not acceptable in your recycling cart. Please keep recyclables loose. Do not place recyclables in clear bags. Plastic shopping bags are accepted at many grocery stores in Nevada County, where you may recycle these safely."
+    },
+    {
+      "id": "food-scraps",
+      "item": "food scraps",
+      "aliases": [
+        "food",
+        "food scraps",
+        "food waste",
+        "leftovers",
+        "banana peel",
+        "apple core",
+        "vegetable scraps",
+        "fruit",
+        "bones",
+        "egg shells",
+        "eggshells",
+        "coffee grounds",
+        "tea bag",
+        "coffee filter"
+      ],
+      "material": "organics",
+      "verdict": "curbside-organics",
+      "how": "Green organics cart. No plastic or compostable bag liners.",
+      "source": "wm-gv-2026-calendar",
+      "quote": "Nevada County residents are now asked to place their food scraps and food-soiled paper in their existing or newly delivered green cart."
+    },
+    {
+      "id": "pizza-box",
+      "item": "greasy pizza box or food-soiled cardboard",
+      "aliases": [
+        "pizza box",
+        "greasy box",
+        "soiled cardboard"
+      ],
+      "material": "food-soiled paper",
+      "verdict": "curbside-organics",
+      "how": "Green organics cart.",
+      "source": "county-recycling-guide",
+      "quote": "Soiled cardboard, including pizza boxes, can go in the organics cart, too."
+    },
+    {
+      "id": "paper-towel",
+      "item": "used paper towels and napkins",
+      "aliases": [
+        "paper towel",
+        "napkin",
+        "paper napkin",
+        "paper plate",
+        "tissue"
+      ],
+      "material": "food-soiled paper",
+      "verdict": "curbside-organics",
+      "how": "Green organics cart (non-shiny paper plates too).",
+      "source": "county-recycling-guide",
+      "quote": "Food waste is spoiled food, vegetable scraps, egg shells, coffee grounds, coffee filters, tea bags, cooked meat and bones, diary, paper towels, paper napkins, non-shiny paper plates, real wine corks, pet hair and pizza boxes."
+    },
+    {
+      "id": "yard-waste",
+      "item": "yard waste",
+      "aliases": [
+        "yard waste",
+        "grass clippings",
+        "grass",
+        "leaves",
+        "branches",
+        "twigs",
+        "pine needles",
+        "flowers",
+        "weeds",
+        "untreated lumber"
+      ],
+      "material": "organics",
+      "verdict": "curbside-organics",
+      "how": "Green organics cart; the lid must close. Big loads can go to McCourtney Road Transfer Station.",
+      "source": "wm-gv-2026-calendar",
+      "quote": "Place food waste, food-soiled paper, grass clippings, flowers and leaves, wood branches & untreated lumber in your yard waste cart."
+    },
+    {
+      "id": "invasive-plants",
+      "item": "blackberry vines, Scotch broom or palm fronds",
+      "aliases": [
+        "blackberry vines",
+        "blackberry",
+        "scotch broom",
+        "palm fronds",
+        "palm leaves"
+      ],
+      "material": "invasive plants",
+      "verdict": "ask",
+      "how": "Not in the green cart. The sources do not say where they go: call WM.",
+      "source": "wm-gv-2026-calendar",
+      "quote": "No invasive plants such as blackberry vines, scotch bloom or palm leaves."
+    },
+    {
+      "id": "compostable-bag",
+      "item": "compostable produce bag",
+      "aliases": [
+        "compostable bag",
+        "compostable produce bag",
+        "biodegradable bag"
+      ],
+      "material": "bioplastic",
+      "verdict": "curbside-trash",
+      "how": "Trash cart. The county compost takes 60 days; these bags take longer.",
+      "source": "county-recycling-guide",
+      "quote": "These bags can be put in the regular trash and they will break down in the landfill."
+    },
+    {
+      "id": "hot-ash",
+      "item": "fireplace or wood stove ash",
+      "aliases": [
+        "ash",
+        "ashes",
+        "fireplace ash",
+        "wood stove ash"
+      ],
+      "material": "ash",
+      "verdict": "curbside-trash",
+      "how": "Wait until it is cold, bag it, then trash cart.",
+      "source": "wm-gv-2026-calendar",
+      "quote": "Wait until it cools, bag, then place in the trash."
+    },
+    {
+      "id": "diaper",
+      "item": "diapers and pet waste",
+      "aliases": [
+        "diaper",
+        "diapers",
+        "pet waste",
+        "dog poop",
+        "cat litter",
+        "kitty litter"
+      ],
+      "material": "mixed",
+      "verdict": "curbside-trash",
+      "how": "Trash cart. Never the green cart.",
+      "source": "wm-gv-2026-calendar",
+      "quote": "No trash, plastic, glass, metal, treated wood, hazardous waste, diapers or pet waste."
+    },
+    {
+      "id": "household-battery",
+      "item": "household batteries (AA, AAA, 9-volt, button)",
+      "aliases": [
+        "battery",
+        "batteries",
+        "aa battery",
+        "aaa battery",
+        "9 volt battery",
+        "button battery",
+        "coin battery",
+        "d battery",
+        "c battery"
+      ],
+      "material": "battery",
+      "verdict": "drop-off:battery-drop-off",
+      "how": "Never in any cart. Put them in a Ziploc bag on top of the blue cart on recycling day, or take them to a drop-off.",
+      "source": "county-recycling-guide",
+      "quote": "Residents who have curbside WM service can place these type of batteries in a Ziploc bag and put it on top of their blue recycle cart on their regular recycle pickup day."
+    },
+    {
+      "id": "large-battery",
+      "item": "car, lawnmower or power tool battery",
+      "aliases": [
+        "car battery",
+        "auto battery",
+        "power tool battery",
+        "lawnmower battery",
+        "drill battery",
+        "lead acid battery"
+      ],
+      "material": "battery",
+      "verdict": "drop-off:mrts",
+      "how": "Take it to McCourtney Road Transfer Station.",
+      "source": "county-recycling-guide",
+      "quote": "Larger batteries include: auto batteries, power tool batteries, lawnmower batteries, and more."
+    },
+    {
+      "id": "battery-device",
+      "item": "device with a built-in battery (vape, earbuds, power bank)",
+      "aliases": [
+        "vape",
+        "e cigarette",
+        "earbuds",
+        "bluetooth earbuds",
+        "power bank",
+        "smartwatch",
+        "cordless vacuum",
+        "light up shoes",
+        "solar garden light",
+        "garden stake light"
+      ],
+      "material": "battery-embedded device",
+      "verdict": "drop-off:mrts",
+      "how": "Do not remove the battery. Take the whole device to McCourtney Road Transfer Station.",
+      "source": "county-recycling-guide",
+      "quote": "No need to remove the battery, just take the entire device to:"
+    },
+    {
+      "id": "e-waste",
+      "item": "electronics (e-waste)",
+      "aliases": [
+        "electronics",
+        "e waste",
+        "tv",
+        "television",
+        "computer",
+        "laptop",
+        "monitor",
+        "printer",
+        "cell phone",
+        "phone",
+        "smartphone",
+        "tablet",
+        "keyboard",
+        "mouse",
+        "cable",
+        "charger",
+        "speaker",
+        "stereo",
+        "radio",
+        "dvd player",
+        "vcr",
+        "video game console",
+        "scanner",
+        "shredder",
+        "calculator",
+        "robot vacuum"
+      ],
+      "material": "electronics",
+      "verdict": "drop-off:mrts",
+      "how": "Free at McCourtney Road Transfer Station (Staples in Grass Valley takes some items). Wipe your data first.",
+      "source": "county-recycling-guide",
+      "quote": "There is no charge to drop off e-waste."
+    },
+    {
+      "id": "small-appliance",
+      "item": "small appliance (toaster, blender, coffee maker)",
+      "aliases": [
+        "small appliance",
+        "toaster",
+        "toaster oven",
+        "blender",
+        "mixer",
+        "coffee maker",
+        "slow cooker",
+        "fan",
+        "vacuum cleaner",
+        "food processor",
+        "microwave"
+      ],
+      "material": "metal / appliance",
+      "verdict": "drop-off:mrts",
+      "how": "Free in the metal section at McCourtney Road Transfer Station.",
+      "source": "county-recycling-guide",
+      "quote": "These need to be taken to the metal section of the McCourtney Road Transfer Station. There is no fee to drop off small appliances here."
+    },
+    {
+      "id": "large-appliance",
+      "item": "large appliance (fridge, washer, water heater)",
+      "aliases": [
+        "refrigerator",
+        "fridge",
+        "freezer",
+        "washing machine",
+        "washer",
+        "dryer",
+        "dishwasher",
+        "water heater",
+        "oven",
+        "stove",
+        "air conditioner"
+      ],
+      "material": "appliance",
+      "verdict": "drop-off:mrts",
+      "how": "McCourtney Road Transfer Station; pay the fee at the scale house first.",
+      "source": "county-recycling-guide",
+      "quote": "Appliances must be paid for at the transfer station’s scale house before dropping off."
+    },
+    {
+      "id": "scrap-metal",
+      "item": "scrap metal (pots, pans, tools)",
+      "aliases": [
+        "scrap metal",
+        "pan",
+        "frying pan",
+        "metal pipe",
+        "bike",
+        "bicycle",
+        "cooking pot"
+      ],
+      "material": "metal",
+      "verdict": "drop-off:mrts",
+      "how": "McCourtney Road Transfer Station metal section; pieces no longer than 4 feet; no cylinders.",
+      "source": "county-recycling-guide",
+      "quote": "All metals are accepted, however, no metal cylinders of any type, nor solar panels."
+    },
+    {
+      "id": "fluorescent-bulb",
+      "item": "fluorescent tube or CFL bulb",
+      "aliases": [
+        "fluorescent bulb",
+        "fluorescent tube",
+        "cfl",
+        "thermostat",
+        "mercury thermometer"
+      ],
+      "material": "mercury",
+      "verdict": "drop-off:mrts-hhw",
+      "how": "Free at the Household Hazardous Waste area at McCourtney Road Transfer Station.",
+      "source": "county-transfer-stations",
+      "quote": "Mercury Products such as fluorescent tubes and bulbs, mercury gauges, electrical switches/relays, pilot light sensor/thermostats"
+    },
+    {
+      "id": "led-bulb",
+      "item": "LED light bulb",
+      "aliases": [
+        "led bulb",
+        "led light"
+      ],
+      "material": "electronics",
+      "verdict": "ask",
+      "how": "Never in the trash (state rule). Local pages do not name a drop-off for LEDs: call WM.",
+      "source": "calrecycle-banned",
+      "quote": "Never put LED lights in the trash because they often have toxic metals."
+    },
+    {
+      "id": "paint",
+      "item": "paint, solvents and household chemicals",
+      "aliases": [
+        "paint",
+        "paint can",
+        "latex paint",
+        "oil paint",
+        "solvent",
+        "paint thinner",
+        "turpentine",
+        "varnish",
+        "cleaner",
+        "bleach",
+        "ammonia",
+        "drain opener",
+        "oven cleaner",
+        "pesticide",
+        "herbicide",
+        "insecticide",
+        "poison",
+        "pool chemicals",
+        "nail polish remover"
+      ],
+      "material": "household hazardous waste",
+      "verdict": "drop-off:mrts-hhw",
+      "how": "Free at the Household Hazardous Waste area. Never in any cart or down the drain.",
+      "source": "county-recycling-guide",
+      "quote": "It is illegal to dispose of household hazardous waste in the trash, down the drain or by abandonment"
+    },
+    {
+      "id": "automotive-fluid",
+      "item": "motor oil, antifreeze, gasoline",
+      "aliases": [
+        "motor oil",
+        "used oil",
+        "oil filter",
+        "antifreeze",
+        "gasoline",
+        "brake fluid"
+      ],
+      "material": "household hazardous waste",
+      "verdict": "drop-off:mrts-hhw",
+      "how": "Free at the Household Hazardous Waste area. For motor oil WM also gives you a curbside jug (call 530-274-3090).",
+      "source": "county-transfer-stations",
+      "quote": "Oil and oil filter Recycling"
+    },
+    {
+      "id": "aerosol",
+      "item": "aerosol can (not empty)",
+      "aliases": [
+        "aerosol",
+        "aerosol can",
+        "spray can",
+        "spray paint"
+      ],
+      "material": "household hazardous waste",
+      "verdict": "drop-off:mrts-hhw",
+      "how": "Household Hazardous Waste area. Do not put cans labeled TOXIC or FLAMMABLE in the trash.",
+      "source": "calrecycle-banned",
+      "quote": "Nonempty aerosol cans that contain hazardous materials"
+    },
+    {
+      "id": "sharps",
+      "item": "needles and lancets (sharps)",
+      "aliases": [
+        "needle",
+        "needles",
+        "syringe",
+        "sharps",
+        "lancet",
+        "insulin pen"
+      ],
+      "material": "medical",
+      "verdict": "drop-off:mrts-hhw",
+      "how": "Sharps collection at the Household Hazardous Waste area. Use a sealed sharps container.",
+      "source": "county-transfer-stations",
+      "quote": "Sharps Collection, which includes needles and lancets. Medication is not accepted"
+    },
+    {
+      "id": "medication",
+      "item": "medication",
+      "aliases": [
+        "medication",
+        "medicine",
+        "pills",
+        "prescription"
+      ],
+      "material": "medical",
+      "verdict": "ask",
+      "how": "The transfer station does not take medication. Call WM.",
+      "source": "county-transfer-stations",
+      "quote": "Sharps Collection, which includes needles and lancets. Medication is not accepted"
+    },
+    {
+      "id": "propane",
+      "item": "propane tank",
+      "aliases": [
+        "propane",
+        "propane tank",
+        "bbq tank",
+        "camping propane",
+        "fire extinguisher"
+      ],
+      "material": "compressed gas",
+      "verdict": "drop-off:mrts",
+      "how": "McCourtney Road Transfer Station: free under 5 gallons, $14.37 for 5 to 25 gallons. Never in a cart.",
+      "source": "wm-mrts-brochure-2026",
+      "quote": "Less than 5 gallons FREE"
+    },
+    {
+      "id": "mattress",
+      "item": "mattress or box spring",
+      "aliases": [
+        "mattress",
+        "box spring"
+      ],
+      "material": "mixed",
+      "verdict": "drop-off:mrts",
+      "how": "Free at McCourtney Road Transfer Station if dry and clean, up to five per resident.",
+      "source": "county-recycling-guide",
+      "quote": "Non-soiled mattresses are free to drop off, up to five per resident."
+    },
+    {
+      "id": "carpet",
+      "item": "carpet and carpet padding",
+      "aliases": [
+        "carpet",
+        "carpet padding"
+      ],
+      "material": "textile",
+      "verdict": "drop-off:mrts",
+      "how": "Separate carpet from padding and roll it up. No area rugs or scraps.",
+      "source": "county-recycling-guide",
+      "quote": "Carpet and padding recycling program is now found at the McCourtney Road Transfer Station."
+    },
+    {
+      "id": "tire",
+      "item": "tire",
+      "aliases": [
+        "tire",
+        "tires"
+      ],
+      "material": "rubber",
+      "verdict": "drop-off:mrts",
+      "how": "McCourtney Road Transfer Station; the fee depends on size and whether it is on the rim.",
+      "source": "county-recycling-guide",
+      "quote": "Tires can be disposed of at the McCourtney Road Transfer Station during operation hours."
+    },
+    {
+      "id": "treated-wood",
+      "item": "treated wood (pressure treated, railroad ties)",
+      "aliases": [
+        "treated wood",
+        "pressure treated wood",
+        "railroad tie",
+        "telephone pole"
+      ],
+      "material": "hazardous wood",
+      "verdict": "drop-off:mrts",
+      "how": "Treated wood receiving area at McCourtney Road Transfer Station; 4 feet or shorter.",
+      "source": "county-recycling-guide",
+      "quote": "These materials are considered hazardous waste and are accepted in the treated wood receiving area at the transfer station."
+    },
+    {
+      "id": "solar-panel",
+      "item": "solar panel",
+      "aliases": [
+        "solar panel",
+        "solar panels"
+      ],
+      "material": "electronics",
+      "verdict": "drop-off:recology-auburn",
+      "how": "Not accepted at McCourtney Road. Take it to Recology in Auburn (or offer a working panel for reuse).",
+      "source": "county-transfer-stations",
+      "quote": "Solar panels can be taken to Recology, 12305 Shale Ridge Road, Auburn CA 95602."
+    },
+    {
+      "id": "dirt-rocks",
+      "item": "rocks, dirt and concrete",
+      "aliases": [
+        "rocks",
+        "dirt",
+        "soil",
+        "concrete"
+      ],
+      "material": "inert",
+      "verdict": "ask",
+      "how": "Not in any cart and not accepted as drop-off loads. Call WM to schedule a dumpster.",
+      "source": "wm-gv-2026-calendar",
+      "quote": "Rocks, Dirt and Concrete Call 530-274-3090 to schedule a dumpster."
+    },
+    {
+      "id": "ammunition",
+      "item": "ammunition or explosives",
+      "aliases": [
+        "ammunition",
+        "ammo",
+        "bullets",
+        "fireworks",
+        "explosives",
+        "flares"
+      ],
+      "material": "explosive",
+      "verdict": "ask",
+      "how": "Prohibited at the transfer station and never in a cart. Call WM.",
+      "source": "county-transfer-stations",
+      "quote": "Ammunition, guns, or explosives"
+    }
+  ],
+  "unresolved": {
+    "why": "Common items that a generic alias would mis-match, and that the local pages read on 2026-11-24 do not settle. They always answer 'ask', never a guessed cart.",
+    "phrases": [
+      "juice box",
+      "milk carton",
+      "carton",
+      "juice pouch",
+      "styrofoam",
+      "foam",
+      "polystyrene",
+      "packing peanuts",
+      "chip bag",
+      "candy wrapper",
+      "snack wrapper",
+      "bubble wrap",
+      "plastic utensil",
+      "plastic fork",
+      "straw",
+      "light bulb",
+      "thermometer",
+      "broken glass",
+      "window glass",
+      "drinking glass",
+      "mirror",
+      "ceramic",
+      "dishes",
+      "clothes",
+      "clothing",
+      "textile",
+      "shoes"
+    ]
+  }
+}
