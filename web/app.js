@@ -43,10 +43,12 @@ function render(r) {
 
   const body = el("div", { class: "body" });
   if (r.found) body.append(el("p", { class: "how" }, r.rule.how));
+  const reminder = index.doc.reminders && index.doc.reminders[r.verdict];
+  if (r.found && reminder) body.append(el("p", { class: "reminder" }, reminder.text));
   if (r.site) {
     body.append(el("div", { class: "site" },
       el("strong", {}, r.site.name),
-      r.site.address && el("p", {}, r.site.address),
+      ...(r.site.address ? r.site.address.split("; ").map((line) => el("p", {}, line)) : []),
       r.site.hours && el("p", {}, r.site.hours),
       r.site.note && el("p", {}, r.site.note),
       r.site.phone && el("p", {}, el("a", { href: tel(r.site.phone) }, r.site.phone)),
@@ -55,7 +57,7 @@ function render(r) {
   if (!r.found) {
     body.append(el("p", { class: "how" }, "Please don't guess: a wrong item can spoil a whole truck of recycling. Ask the hauler:"));
     body.append(el("a", { class: "call", href: tel(r.ask.phone) }, `Call WM ${r.ask.phone}`));
-    body.append(el("p", {}, `${r.ask.hours}. ${r.ask.also}.`));
+    body.append(el("p", {}, r.ask.hours), el("p", {}, r.ask.also));
   }
   if (r.source) {
     body.append(el("div", { class: "source" },
@@ -76,6 +78,17 @@ function render(r) {
   box.append(body);
   box.hidden = false;
   box.scrollIntoView({ behavior: "smooth", block: "start" });
+  tally(r.found);
+}
+
+// The success measure, kept only on this phone: how many checks were answered from a cited rule.
+function tally(cited) {
+  let t = { cited: 0, ask: 0 };
+  try { t = { ...t, ...JSON.parse(localStorage.getItem("tally") || "{}") }; } catch {}
+  if (cited !== undefined) t[cited ? "cited" : "ask"]++;
+  try { localStorage.setItem("tally", JSON.stringify(t)); } catch {}
+  const total = t.cited + t.ask;
+  $("tally").textContent = total ? `On this phone: ${t.cited} of ${total} checks answered from a cited local rule.` : "";
 }
 
 function reset() {
@@ -139,6 +152,7 @@ async function main() {
   index = buildIndex(await res.json());
   $("type-form").onsubmit = (e) => { e.preventDefault(); check($("item").value); };
   $("photo").onchange = onPhoto;
+  tally();
   $("chips").append(...CHIPS.map((c) => el("button", { type: "button", onclick: () => { $("item").value = c; check(c); } }, c)));
 }
 

@@ -77,6 +77,12 @@
       "name": "Recology Auburn",
       "address": "12305 Shale Ridge Road, Auburn, CA 95602",
       "source": "county-transfer-stations"
+    },
+    "crv-buyback": {
+      "name": "CRV buyback center (get your deposit back)",
+      "address": "McCourtney Road Transfer Station, 14741 Wolf Mountain Road, Grass Valley (Wednesday - Sunday, 8 a.m. - 3:30 p.m.); Grass Valley Recycling, 125 Spring Street, Grass Valley (9 a.m. - 4:30 p.m., closed Sundays); North San Juan Transfer Station (third Thursday of the month)",
+      "note": "Hours may vary; check with the location first. Empty, whole containers; sort by material.",
+      "source": "county-recycling-guide"
     }
   },
   "rules": [
@@ -739,6 +745,24 @@
       "how": "Prohibited at the transfer station and never in a cart. Call WM.",
       "source": "county-transfer-stations",
       "quote": "Ammunition, guns, or explosives"
+    },
+    {
+      "id": "crv-refund",
+      "item": "CRV bottles and cans for the refund",
+      "aliases": [
+        "crv",
+        "crv bottles",
+        "crv cans",
+        "bottle deposit",
+        "bottle refund",
+        "can refund",
+        "redemption"
+      ],
+      "material": "beverage containers",
+      "verdict": "drop-off:crv-buyback",
+      "how": "For the 5 or 10 cent refund, take empty CRV containers to a buyback center. They can also go in the blue cart with no refund.",
+      "source": "county-recycling-guide",
+      "quote": "Where can I take CRV containers locally to receive the refund?"
     }
   ],
   "unresolved": {
@@ -772,5 +796,12 @@
       "textile",
       "shoes"
     ]
+  },
+  "reminders": {
+    "curbside-recycle": {
+      "text": "Empty and dry, loose in the cart, no bags. Food or liquid spoils the load.",
+      "source": "wm-gv-2026-calendar",
+      "quote": "Recycle only empty/dry bottles, cans, paper and cardboard."
+    }
   }
 }

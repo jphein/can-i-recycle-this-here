@@ -122,4 +122,5 @@ test("every quote appears verbatim in its cited page snapshot", { skip: !haveSna
   for (const [id, s] of Object.entries(doc.sources)) text[id] = norm(readFileSync(join(root, s.snapshot), "utf8"));
   for (const r of doc.rules) assert.ok(text[r.source].includes(norm(r.quote)), `${r.id}: quote not found in ${r.source}`);
   assert.ok(text[doc.ask.source].includes(norm(doc.ask.quote)), "ask quote not found");
+  for (const [k, m] of Object.entries(doc.reminders || {})) assert.ok(text[m.source].includes(norm(m.quote)), `reminder ${k}: quote not found`);
 });

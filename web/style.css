@@ -48,7 +48,8 @@ h1 { font-size: 1.7rem; line-height: 1.15; margin: 0; }
 h1 em { color: var(--accent); font-style: normal; }
 .where { margin: 6px 0 0; color: var(--muted); font-size: 0.95rem; }
 
-.ask-panel { display: grid; gap: 14px; padding: 12px 0; }
+.ask-panel { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 12px 0; }
+.status:empty { display: none; }
 
 .big-button {
   display: flex; align-items: center; justify-content: center; gap: 12px;
@@ -97,10 +98,14 @@ button.secondary { background: transparent; color: var(--text); border: 2px soli
 @media (prefers-color-scheme: dark) { .verdict { color: #101412; } }
 
 .body { padding: 16px 18px 18px; display: grid; gap: 14px; }
-.how { font-size: 1.1rem; margin: 0; }
+.body p { margin: 0; }
+.how { font-size: 1.1rem; }
+.reminder { border-left: 4px solid var(--recycle); padding-left: 12px; }
+#tally:empty { display: none; }
 .site { border-left: 4px solid var(--dropoff); padding-left: 12px; }
 .site strong { display: block; }
 .site p { margin: 2px 0; }
+.site a { color: inherit; }
 .call {
   display: flex; align-items: center; justify-content: center; min-height: 56px;
   border-radius: 12px; background: var(--accent); color: var(--accent-text);
