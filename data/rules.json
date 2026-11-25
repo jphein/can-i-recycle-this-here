@@ -233,7 +233,7 @@
         "coffee filter"
       ],
       "material": "organics",
-      "verdict": "curbside-organics",
+      "verdict": "curbside-recycle",
       "how": "Green organics cart. No plastic or compostable bag liners.",
       "source": "wm-gv-2026-calendar",
       "quote": "Nevada County residents are now asked to place their food scraps and food-soiled paper in their existing or newly delivered green cart."
@@ -247,7 +247,7 @@
         "soiled cardboard"
       ],
       "material": "food-soiled paper",
-      "verdict": "curbside-organics",
+      "verdict": "curbside-recycle",
       "how": "Green organics cart.",
       "source": "county-recycling-guide",
       "quote": "Soiled cardboard, including pizza boxes, can go in the organics cart, too."
@@ -263,7 +263,7 @@
         "tissue"
       ],
       "material": "food-soiled paper",
-      "verdict": "curbside-organics",
+      "verdict": "curbside-recycle",
       "how": "Green organics cart (non-shiny paper plates too).",
       "source": "county-recycling-guide",
       "quote": "Food waste is spoiled food, vegetable scraps, egg shells, coffee grounds, coffee filters, tea bags, cooked meat and bones, diary, paper towels, paper napkins, non-shiny paper plates, real wine corks, pet hair and pizza boxes."
@@ -284,7 +284,7 @@
         "untreated lumber"
       ],
       "material": "organics",
-      "verdict": "curbside-organics",
+      "verdict": "curbside-recycle",
       "how": "Green organics cart; the lid must close. Big loads can go to McCourtney Road Transfer Station.",
       "source": "wm-gv-2026-calendar",
       "quote": "Place food waste, food-soiled paper, grass clippings, flowers and leaves, wood branches & untreated lumber in your yard waste cart."
