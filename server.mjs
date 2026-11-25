@@ -4,8 +4,8 @@
 //
 // Env (read from the process only; never written to a file):
 //   PORT                 default 8787
-//   VISION_ENDPOINT      OpenAI-compatible chat-completions URL (e.g. an Azure AI Foundry deployment)
-//   VISION_MODEL         model / deployment name
+//   VISION_BASE_URL      OpenAI-compatible API base, default https://api.tokenfactory.nebius.com/v1
+//   VISION_MODEL         image-capable model id, default Qwen/Qwen3.8-27B (see scripts/vision-preflight.mjs)
 //   VISION_API_KEY       key; without it /api/identify answers 503 and the app uses typed input
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
@@ -34,13 +34,15 @@ export function parseGuesses(text) {
   }
 }
 
-async function identify(image) {
-  const { VISION_ENDPOINT, VISION_MODEL, VISION_API_KEY } = process.env;
-  if (!VISION_ENDPOINT || !VISION_API_KEY) return { status: 503, body: { error: "vision not configured" } };
+export async function identify(image, env = process.env) {
+  const VISION_API_KEY = env.VISION_API_KEY;
+  const base = (env.VISION_BASE_URL || "https://api.tokenfactory.nebius.com/v1").replace(/\/+$/, "");
+  const VISION_MODEL = env.VISION_MODEL || "Qwen/Qwen3.8-27B";
+  if (!VISION_API_KEY) return { status: 503, body: { error: "vision not configured" } };
   if (typeof image !== "string" || !/^data:image\/(jpeg|png|webp);base64,/.test(image)) return { status: 400, body: { error: "expected a data:image URL" } };
-  const r = await fetch(VISION_ENDPOINT, {
+  const r = await fetch(`${base}/chat/completions`, {
     method: "POST",
-    headers: { "Content-Type": "application/json", Authorization: `Bearer ${VISION_API_KEY}`, "api-key": VISION_API_KEY },
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${VISION_API_KEY}` },
     body: JSON.stringify({
       model: VISION_MODEL,
       max_tokens: 200,

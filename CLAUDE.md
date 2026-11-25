@@ -33,7 +33,10 @@ Tests: `node --test` (built in). No framework, no dependencies, no `node_modules
 
 ## Commands
 
-    npm test                    # 13 tests
+    npm test                    # 14 tests, no network, no model calls
+    scripts/vision-preflight.mjs  # image-capable models the key can see
+    scripts/photo-test.mjs      # real model, spends tokens: only after the credit preflight is GO
+    scripts/screenshots.mjs     # headless Chromium at 390/1024, light + dark -> scratch/shots
     npm start                   # http://localhost:8787
     scripts/fetch-sources.sh    # refresh page snapshots, then npm test
     ./build.sh                  # dist/ with realm-sigil version.json

@@ -34,15 +34,27 @@ npm start            # http://localhost:8787, typed-item path works straight awa
 npm test             # rules lookup and server tests
 ```
 
-The photo path needs a vision model behind an OpenAI-compatible chat-completions endpoint, given
-to the server through its environment only (never a file):
+The photo path needs an image-capable model behind an OpenAI-compatible API. The key reaches the
+server through its environment only, straight from a password manager, never a file:
 
 ```sh
-VISION_ENDPOINT=... VISION_MODEL=... VISION_API_KEY=... npm start
+VISION_API_KEY=$(bw get password "<vault item name>") node server.mjs
 ```
 
-Without those the page says photo naming is off and asks you to type the item. The photo is
-shrunk on the phone, forwarded to the model, and never stored or logged.
+| variable | default |
+|---|---|
+| `VISION_API_KEY` | none; without it the page says photo naming is off and asks you to type the item |
+| `VISION_BASE_URL` | `https://api.tokenfactory.nebius.com/v1` |
+| `VISION_MODEL` | `Qwen/Qwen3.8-27B` |
+
+`scripts/vision-preflight.mjs` lists the image-capable models a key can see (ids and prices only).
+`scripts/photo-test.mjs` runs sample photos through the real model and the lookup and prints hit or
+miss per photo; it spends tokens, so it is not part of `npm test`. `scripts/get-fixtures.py` fetches
+CC0 / public-domain sample photos from Wikimedia Commons into `tests/fixtures/`.
+
+The photo is shrunk on the phone, forwarded to the model, and never stored or logged.
+
+The footer keeps one number, on the phone only: how many checks were answered from a cited rule.
 
 `./build.sh` writes a static copy to `dist/` (typed-item path only).
 
