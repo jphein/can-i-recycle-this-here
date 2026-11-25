@@ -130,7 +130,7 @@ async function onPhoto(e) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ image }),
     });
-    if (res.status === 503 || res.status === 404) {
+    if (res.status === 503 || res.status === 404 || res.status === 405) { // 405: a static host such as GitHub Pages
       status.textContent = "Photo naming isn't switched on here yet. Type what it is below.";
       $("item").focus();
       return;
