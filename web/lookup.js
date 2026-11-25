@@ -61,7 +61,27 @@ export function buildIndex(doc) {
   }
   // Longest phrase first ("pizza box" over "box"), then the safer verdict.
   entries.sort((a, b) => b.toks.length - a.toks.length || b.sev - a.sev);
-  return { doc, entries };
+  // Every word the table knows, plus harmless describing words. A bare container word ("box",
+  // "bag", "paper") only answers when every other word in the label is one of these, so "dog food
+  // bag" and "wax paper" answer "ask" instead of borrowing the plain-bag or plain-paper rule.
+  const known = new Set(tokens(STOPWORDS));
+  for (const e of entries) for (const t of e.toks) known.add(t);
+  const genericWords = new Set(tokens(((doc.generic && doc.generic.words) || []).join(" ")));
+  // generic word -> the rule its bare alias belongs to ("food" -> food-scraps, "bag" -> plastic-bag)
+  const generic = new Map();
+  for (const e of entries) if (e.rule && e.toks.length === 1 && genericWords.has(e.toks[0])) generic.set(e.toks[0], e.rule.id);
+  return { doc, entries, known, generic };
+}
+
+const STOPWORDS = "a an the of my our some this that these those it and or from with in on for to " +
+  "old empty used dirty broken greasy half full little big small large tiny new clean dry wet two three few";
+
+// A bare generic word is ignored when the label also holds an unfamiliar word, or a second generic
+// word that points at a different rule ("dog food bag": food -> green cart, bag -> grocery bin).
+function gated(index, entry, q) {
+  const w = entry.toks[0];
+  if (entry.toks.length !== 1 || !index.generic.has(w)) return false;
+  return q.some((t) => t !== w && (!index.known.has(t) || (index.generic.has(t) && index.generic.get(t) !== index.generic.get(w))));
 }
 
 // Returns { found, rule, matched, verdict, site, source, quote, ask }.
@@ -71,7 +91,7 @@ export function lookup(index, label) {
   let hit = null;
   if (q.length) {
     for (const e of index.entries) {
-      if (containsPhrase(q, e.toks)) { hit = e; break; }
+      if (containsPhrase(q, e.toks) && !gated(index, e, q)) { hit = e; break; }
     }
   }
   if (!hit || !hit.rule) {

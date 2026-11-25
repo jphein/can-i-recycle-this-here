@@ -803,5 +803,17 @@
       "source": "wm-gv-2026-calendar",
       "quote": "Recycle only empty/dry bottles, cans, paper and cardboard."
     }
+  },
+  "generic": {
+    "why": "Bare container or category words. They answer only when every other word in the label is one the table knows, so a longer unfamiliar name ('dog food bag', 'wax paper') answers 'ask'.",
+    "words": [
+      "box",
+      "bag",
+      "paper",
+      "can",
+      "glass",
+      "jar",
+      "food"
+    ]
   }
 }

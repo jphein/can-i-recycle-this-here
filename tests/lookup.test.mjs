@@ -97,6 +97,17 @@ test("unresolved phrases beat generic aliases and answer ask", () => {
   for (const p of doc.unresolved.phrases) assert.equal(lookup(index, p).verdict, "ask", p);
 });
 
+test("100-item typed set: zero wrong answers, at least 70 of 80 cited, every unknown asks", async () => {
+  const { evaluate } = await import("../scripts/typed-rate.mjs");
+  const e = evaluate();
+  assert.equal(e.total, 100);
+  assert.equal(e.total - e.expectRule, 20, "20 unknowns");
+  const wrong = e.rows.filter((r) => r.outcome === "wrong").map((r) => `${r.label} -> ${r.got}`);
+  assert.deepEqual(wrong, [], "a wrong cart is never acceptable");
+  assert.ok(e.cited >= 70, `cited ${e.cited}/80 fell below 70`);
+  assert.equal(e.askCorrect, 20);
+});
+
 test("model guesses: low confidence and unmatched labels never invent a rule", () => {
   assert.equal(lookupGuesses(index, [{ label: "laptop", confidence: 0.9 }]).rule.id, "e-waste");
   assert.equal(lookupGuesses(index, [{ label: "laptop", confidence: 0.2 }]).verdict, "ask");
