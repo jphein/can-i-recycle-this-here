@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .b { fill: #1f6f4a; } .a { fill: none; stroke: #ffffff; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    @media (prefers-color-scheme: dark) { .b { fill: #4fbf87; } .a { stroke: #0d1410; } }
+  </style>
+  <rect class="b" x="2" y="2" width="60" height="60" rx="14"/>
+  <path class="a" d="M22 24 32 14l10 10M32 15v20M18 36l-4 12h36l-4-12"/>
+</svg>

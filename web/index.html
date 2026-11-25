@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Can I Recycle This Here?</title>
+  <meta name="description" content="Point your phone at an item and get Western Nevada County's actual rule for it, with the cited source line.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="top">
+    <h1>Can I recycle this <em>here</em>?</h1>
+    <p class="where">Rules for Western Nevada County, CA (WM curbside, Grass Valley, Nevada City)</p>
+  </header>
+
+  <main>
+    <section class="ask-panel" aria-label="What do you have?">
+      <label class="big-button" for="photo">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M9 3 7.2 5H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.2L15 3H9zm3 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+        Take a photo
+      </label>
+      <input id="photo" type="file" accept="image/*" capture="environment" hidden>
+      <p id="photo-status" class="status" role="status" aria-live="polite"></p>
+      <img id="preview" alt="Your photo" hidden>
+
+      <form id="type-form" class="type-form" autocomplete="off">
+        <label for="item">Or type what it is</label>
+        <div class="row">
+          <input id="item" name="item" type="search" inputmode="search" placeholder="e.g. pizza box, AA battery, paint" enterkeyhint="go">
+          <button type="submit">Check</button>
+        </div>
+      </form>
+      <div class="chips" id="chips" aria-label="Common items"></div>
+    </section>
+
+    <section id="answer" class="answer" hidden aria-live="polite"></section>
+  </main>
+
+  <footer class="foot">
+    <p>Answers come only from the county's and WM's public pages, each shown with its quote and the date we read it. Not sure? Call WM at <a href="tel:+15302743090">530-274-3090</a>.</p>
+    <p class="small">Your photo is sent only to the item-naming model and is not stored. No account, no tracking.</p>
+  </footer>
+</body>
+</html>
