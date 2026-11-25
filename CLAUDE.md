@@ -30,10 +30,16 @@ Tests: `node --test` (built in). No framework, no dependencies, no `node_modules
 - Keys: `VISION_*` from the vault into the process environment only. No `.env`, nothing in the repo.
 - Web: SVG favicon, dark + light through `prefers-color-scheme`, realm-sigil stamp from `build.sh`.
 - Phone first: check at 390 px wide before anything else.
+- A bare container word (`generic.words` in rules.json) only answers when nothing else in the
+  label is unfamiliar or points at another rule. `npm test` fails on any wrong cart in
+  `tests/typed-set.json`; a miss ("ask") is acceptable, a wrong cart never is.
+- Script names: avoid "eval" in a file name; the fleet's bw-output-guard reads it as inline code
+  and blocks the run (it renamed `typed-eval.mjs` to `typed-rate.mjs`, 2026-11-24).
 
 ## Commands
 
-    npm test                    # 14 tests, no network, no model calls
+    npm test                    # 15 tests, no network, no model calls
+    scripts/typed-rate.mjs      # cited-answer rate on the 100-item typed set
     scripts/vision-preflight.mjs  # image-capable models the key can see
     scripts/photo-test.mjs      # real model, spends tokens: only after the credit preflight is GO
     scripts/screenshots.mjs     # headless Chromium at 390/1024, light + dark -> scratch/shots

@@ -33,11 +33,26 @@ big, and any answer can be read aloud.
   generic light bulbs) are listed explicitly and always answer "ask". When two rules match equally,
   the safer one wins, so "can of paint" goes to hazardous waste, not the blue cart. The first
   version sent "juice box" to the blue cart through the generic word "box"; a test caught it.
+- **Measured on 100 typed items** (40 names from the table, 36 ways people actually type them, 4
+  misspellings, 20 items no local page covers): 73 of the 80 coverable items were answered from
+  the right cited rule (91%), all 20 uncovered items answered "not sure", and **none was sent to a
+  wrong cart**. The first run of this set found two wrong answers ("dog food bag" to the plastic-bag
+  bin, "wax paper" to the blue cart), both caused by a bare word like "bag" or "paper" inside a
+  longer name. The fix is a general rule, not a patch for those two items: a bare container word
+  only counts when nothing else in the name is unfamiliar or points somewhere else. It cost five
+  answers that now say "not sure" ("tuna can", "amazon box"), which is the trade I want: a miss is
+  safe, a wrong cart is not. The set and the scorer are in the repo, and the suite fails if any
+  answer goes to a wrong cart.
 - **Stack:** plain HTML, CSS and JavaScript with no build step and no dependencies, so the same
-  lookup file runs in the browser and in the tests. A small Node server (under 100 lines) exists only to keep the
-  model key off the phone. 14 automated tests.
-- TODO (vision): which model, and the hit rate on real photos. The request path is tested against a
-  stand-in endpoint; it has not yet been run against a real model.
+  lookup file runs in the browser and in the tests. A small Node server (under 100 lines) exists
+  only to keep the model key off the phone. 15 automated tests, plus screenshots at phone and
+  desktop widths in light and dark mode from a headless browser.
+- **The photo path** sends a shrunk photo to an image-capable model through an OpenAI-compatible
+  API and asks only for up to three names with a confidence. Below 0.5 confidence the app answers
+  "not sure". Ten public-domain test photos (pizza box, AA batteries, glass jar, soda can, plastic
+  bottle, laptop, paint tin, cardboard box, plastic bag, propane cylinders) are ready with a scorer.
+- TODO (vision): the model used and its hit rate on those ten photos. The request path is tested
+  against a stand-in endpoint; it has not yet been run against a real model.
 
 ## What's next
 
@@ -63,10 +78,11 @@ recycled rather than landfilled from September 2025 to August 2026.
 **How success would be measured.**
 
 1. *Cited-answer rate:* the share of checks answered from a cited local rule rather than "not
-   sure". The app already counts this on the phone (and nowhere else). Target: 80% or more on a
-   test set of 100 common household items.
+   sure". The app already counts this on the phone (and nowhere else). Target 80% on a 100-item
+   test set; measured today: 91% (73 of 80 coverable items, typed).
 2. *Wrong-cart answers:* on that same test set, zero items sent to a cart the cited page excludes.
-   "Not sure" is an acceptable answer; a wrong cart is not.
+   "Not sure" is an acceptable answer; a wrong cart is not. Measured today: 0 of 100, enforced by
+   the test suite.
 3. *Avoided contamination per 100 checks:* how many checks were for an item that does not belong in
    the blue cart (bags, food-soiled paper, batteries, electronics) and got a different, cited
    destination.
