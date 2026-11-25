@@ -108,6 +108,22 @@ test("100-item typed set: zero wrong answers, at least 70 of 80 cited, every unk
   assert.equal(e.askCorrect, 20);
 });
 
+// The typed set records the verdict a reviewer expects for each item, separately from the table.
+// Without it a flipped verdict in data/rules.json (food scraps to the blue cart) passed every test
+// (CI positive control, PR #2, 2026-11-24).
+test("typed set pins the expected verdict of every rule, and the table still agrees", () => {
+  const set = JSON.parse(readFileSync(join(root, "tests/typed-set.json"), "utf8")).items;
+  const covered = new Set(set.map((i) => i.expect));
+  const missing = doc.rules.map((r) => r.id).filter((id) => !covered.has(id));
+  assert.deepEqual(missing, [], "every rule needs at least one typed item");
+  const byId = Object.fromEntries(doc.rules.map((r) => [r.id, r.verdict]));
+  for (const it of set) {
+    assert.match(it.verdict || "", VERDICT, `${it.label}: no pinned verdict`);
+    const tableVerdict = it.expect === "ask" ? "ask" : byId[it.expect];
+    assert.equal(tableVerdict, it.verdict, `${it.label}: table says ${tableVerdict}, typed set pins ${it.verdict}`);
+  }
+});
+
 test("model guesses: low confidence and unmatched labels never invent a rule", () => {
   assert.equal(lookupGuesses(index, [{ label: "laptop", confidence: 0.9 }]).rule.id, "e-waste");
   assert.equal(lookupGuesses(index, [{ label: "laptop", confidence: 0.2 }]).verdict, "ask");
