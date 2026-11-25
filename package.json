@@ -1,0 +1,13 @@
+{
+  "name": "can-i-recycle-this-here",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Point a phone at an item, get Nevada County's actual rule for it, with the cited source line.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "start": "node server.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
